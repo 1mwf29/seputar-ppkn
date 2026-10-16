@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Seputar PPKn</title>
+    <title>Seputar PPKn - Media Pembelajaran Digital</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
@@ -25,45 +25,45 @@
     <!-- TOP HEADER -->
     <header class="p-4 flex justify-between items-center bg-white sticky top-0 z-40 border-b border-slate-100">
         <div class="flex items-center gap-3">
-            <button class="text-slate-600 text-lg">
-                <i class="fa-solid fa-bars"></i>
-            </button>
-            <h1 class="font-bold text-lg text-slate-800">Media PPKn</h1>
+            <div class="w-9 h-9 bg-red-600 rounded-xl flex items-center justify-center text-white text-base font-black shadow-md shadow-red-500/20">
+                🇮🇩
+            </div>
+            <div>
+                <h1 class="font-bold text-base text-slate-800 leading-tight">Seputar PPKn</h1>
+                <p class="text-[10px] text-slate-400">Media Pembelajaran Digital</p>
+            </div>
         </div>
-        <div class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 text-sm font-bold">
+        <div class="w-8 h-8 bg-slate-100 rounded-full flex items-center justify-center text-slate-600 text-sm">
             <i class="fa-solid fa-bell"></i>
         </div>
     </header>
 
-    <main class="p-4 flex-1 space-y-6">
+    <main class="p-4 flex-1 space-y-5">
 
-        <!-- PROFILE BANNER / CARD (Gaya Aplikasi Sekolah) -->
-        <div class="bg-blue-600 rounded-2xl p-4 text-white shadow-lg shadow-blue-500/20 relative overflow-hidden">
-            <div class="flex items-center gap-3 mb-3">
-                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl border border-white/30">
-                    🏛️
+        <!-- PROFILE BANNER / CARD PROFIL -->
+        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-4 text-white shadow-lg shadow-blue-500/20 relative overflow-hidden">
+            <div class="flex items-center gap-3 relative z-10">
+                <!-- Avatar -->
+                <div class="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center text-2xl border-2 border-white/40 shadow-inner">
+                    👨‍🏫
                 </div>
                 <div>
-                    <h2 class="font-bold text-base leading-tight">Pendidikan Pancasila</h2>
-                    <p class="text-xs text-blue-100">Ruang Informasi Digital Pendidikan Pancasila</p>
+                    <span class="text-[10px] uppercase font-bold tracking-wider text-blue-200 bg-blue-500/30 px-2 py-0.5 rounded-md border border-blue-400/20">
+                        Educator & Creator
+                    </span>
+                    <h2 class="font-extrabold text-base leading-tight mt-1">I Made Wibi Fernanda, S.Pd.</h2>
+                    <p class="text-[11px] text-blue-100 mt-0.5">Guru Pendidikan Pancasila — SMPN 17 Denpasar</p>
                 </div>
             </div>
-            
-            <div class="bg-blue-700/50 rounded-xl p-2.5 flex justify-between items-center text-xs border border-blue-400/30">
-                <div>
-                    <span class="text-blue-200 block text-[10px]">Project By </span>
-                    <span class="font-semibold">I Made Wibi Fernanda, S.Pd</span>
-                </div>
-                <div class="text-right">
-                    <span class="text-blue-200 block text-[10px]">Status Portal</span>
-                    <span class="font-semibold text-emerald-300">● Aktif</span>
-                </div>
+
+            <!-- Hiasan Background Card -->
+            <div class="absolute -right-4 -bottom-6 text-7xl opacity-10 select-none">
+                🏛️
             </div>
         </div>
 
-        <!-- SECTION 1: MATERI UTAMA -->
+        <!-- GRID 9 MENU UTUH -->
         <div>
-            <h3 class="text-sm font-bold text-slate-500 mb-3 uppercase tracking-wider text-[11px]">Materi Pembelajaran</h3>
             <div class="grid grid-cols-3 gap-3">
                 
                 <!-- MENU 1: E-BOOK -->
@@ -90,14 +90,6 @@
                     <span class="text-xs font-semibold text-slate-700">Perpus</span>
                 </div>
 
-            </div>
-        </div>
-
-        <!-- SECTION 2: EVALUASI & AKADEMIK -->
-        <div>
-            <h3 class="text-sm font-bold text-slate-500 mb-3 uppercase tracking-wider text-[11px]">Latihan & Referensi</h3>
-            <div class="grid grid-cols-3 gap-3">
-                
                 <!-- MENU 4: KUIS -->
                 <div onclick="openTab('kuis')" class="card-menu bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center cursor-pointer flex flex-col items-center justify-center gap-2">
                     <div class="w-11 h-11 bg-rose-50 text-rose-500 rounded-xl flex items-center justify-center text-xl">
@@ -120,6 +112,30 @@
                         <i class="fa-solid fa-play"></i>
                     </div>
                     <span class="text-xs font-semibold text-slate-700">Video</span>
+                </div>
+
+                <!-- MENU 7: KONTAK PERSON -->
+                <div onclick="openTab('kontak')" class="card-menu bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center cursor-pointer flex flex-col items-center justify-center gap-2">
+                    <div class="w-11 h-11 bg-teal-50 text-teal-500 rounded-xl flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-address-book"></i>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-700">Kontak</span>
+                </div>
+
+                <!-- MENU 8: SARAN DAN KRITIK -->
+                <div onclick="openTab('saran')" class="card-menu bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center cursor-pointer flex flex-col items-center justify-center gap-2">
+                    <div class="w-11 h-11 bg-purple-50 text-purple-500 rounded-xl flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-comment-dots"></i>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-700">Saran & Kritik</span>
+                </div>
+
+                <!-- MENU 9: MEDIA SOSIAL -->
+                <div onclick="openTab('medsos')" class="card-menu bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center cursor-pointer flex flex-col items-center justify-center gap-2">
+                    <div class="w-11 h-11 bg-sky-50 text-sky-500 rounded-xl flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-share-nodes"></i>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-700">Media Sosial</span>
                 </div>
 
             </div>
@@ -148,9 +164,9 @@
             <i class="fa-solid fa-book text-base"></i>
             <span>Materi</span>
         </button>
-        <button onclick="openTab('kuis')" class="flex flex-col items-center text-slate-400 gap-1">
-            <i class="fa-solid fa-pen-to-square text-base"></i>
-            <span>Tugas</span>
+        <button onclick="openTab('saran')" class="flex flex-col items-center text-slate-400 gap-1">
+            <i class="fa-solid fa-comments text-base"></i>
+            <span>Aspirasi</span>
         </button>
     </footer>
 
@@ -226,6 +242,39 @@
                             <span class="text-[10px] text-slate-400">YouTube Video</span>
                         </div>
                         <a href="#" class="bg-red-600 text-white text-[11px] px-3 py-1.5 rounded-lg font-semibold">Tonton</a>
+                    </div>
+                `;
+            } else if (menu === 'kontak') {
+                title.innerHTML = `<i class="fa-solid fa-address-book text-teal-500"></i> Kontak Person Guru`;
+                body.innerHTML = `
+                    <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-slate-100">
+                        <div>
+                            <p class="font-bold text-xs text-slate-800">WhatsApp Guru</p>
+                            <span class="text-[10px] text-slate-400">Layanan Pertanyaan Siswa</span>
+                        </div>
+                        <a href="#" class="bg-teal-600 text-white text-[11px] px-3 py-1.5 rounded-lg font-semibold">Hubungi</a>
+                    </div>
+                `;
+            } else if (menu === 'saran') {
+                title.innerHTML = `<i class="fa-solid fa-comment-dots text-purple-500"></i> Saran dan Kritik`;
+                body.innerHTML = `
+                    <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-slate-100">
+                        <div>
+                            <p class="font-bold text-xs text-slate-800">Kotak Aspirasi Digital</p>
+                            <span class="text-[10px] text-slate-400">Masukan untuk Pembelajaran</span>
+                        </div>
+                        <a href="#" class="bg-purple-600 text-white text-[11px] px-3 py-1.5 rounded-lg font-semibold">Isi Form</a>
+                    </div>
+                `;
+            } else if (menu === 'medsos') {
+                title.innerHTML = `<i class="fa-solid fa-share-nodes text-sky-500"></i> Media Sosial Pembelajaran`;
+                body.innerHTML = `
+                    <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-slate-100">
+                        <div>
+                            <p class="font-bold text-xs text-slate-800">YouTube Seputar PPKn</p>
+                            <span class="text-[10px] text-slate-400">Channel Edukasi</span>
+                        </div>
+                        <a href="#" class="bg-red-600 text-white text-[11px] px-3 py-1.5 rounded-lg font-semibold">Kunjungi</a>
                     </div>
                 `;
             }
