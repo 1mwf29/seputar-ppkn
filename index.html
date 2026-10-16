@@ -115,4 +115,127 @@
                 </div>
 
                 <!-- MENU 6: VIDEO -->
-                <div onclick="openTab('video')" class="card-menu bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center cursor-pointer flex flex-col
+                <div onclick="openTab('video')" class="card-menu bg-white p-3.5 rounded-2xl border border-slate-100 shadow-sm text-center cursor-pointer flex flex-col items-center justify-center gap-2">
+                    <div class="w-11 h-11 bg-red-50 text-red-500 rounded-xl flex items-center justify-center text-xl">
+                        <i class="fa-solid fa-play"></i>
+                    </div>
+                    <span class="text-xs font-semibold text-slate-700">Video</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- POPUP / MODAL ISI CONTENT -->
+        <div id="content-modal" class="hidden bg-white p-4 rounded-2xl border border-slate-200 shadow-md">
+            <div class="flex justify-between items-center pb-3 border-b border-slate-100 mb-3">
+                <h4 id="modal-title" class="font-bold text-sm text-slate-800 flex items-center gap-2"></h4>
+                <button onclick="closeModal()" class="text-slate-400 text-sm">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div id="modal-body" class="space-y-2"></div>
+        </div>
+
+    </main>
+
+    <!-- BOTTOM NAVBAR -->
+    <footer class="bg-white border-t border-slate-200 p-2 flex justify-around items-center sticky bottom-0 z-40 text-[11px]">
+        <button class="flex flex-col items-center text-blue-600 font-semibold gap-1">
+            <i class="fa-solid fa-house text-base"></i>
+            <span>Beranda</span>
+        </button>
+        <button onclick="openTab('ebook')" class="flex flex-col items-center text-slate-400 gap-1">
+            <i class="fa-solid fa-book text-base"></i>
+            <span>Materi</span>
+        </button>
+        <button onclick="openTab('kuis')" class="flex flex-col items-center text-slate-400 gap-1">
+            <i class="fa-solid fa-pen-to-square text-base"></i>
+            <span>Tugas</span>
+        </button>
+    </footer>
+
+    <script>
+        function openTab(menu) {
+            const modal = document.getElementById('content-modal');
+            const title = document.getElementById('modal-title');
+            const body = document.getElementById('modal-body');
+
+            modal.classList.remove('hidden');
+
+            if (menu === 'ebook') {
+                title.innerHTML = `<i class="fa-solid fa-book-bookmark text-emerald-500"></i> E-Book & Modul Ajar`;
+                body.innerHTML = `
+                    <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-slate-100">
+                        <div>
+                            <p class="font-bold text-xs text-slate-800">Buku Siswa PPKn Kelas 7</p>
+                            <span class="text-[10px] text-slate-400">PDF • Kurikulum Merdeka</span>
+                        </div>
+                        <a href="#" class="bg-blue-600 text-white text-[11px] px-3 py-1.5 rounded-lg font-semibold">Buka</a>
+                    </div>
+                `;
+            } else if (menu === 'ppt') {
+                title.innerHTML = `<i class="fa-solid fa-file-powerpoint text-amber-500"></i> Slide Presentasi`;
+                body.innerHTML = `
+                    <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-slate-100">
+                        <div>
+                            <p class="font-bold text-xs text-slate-800">PPT Bab 1: Sejarah Pancasila</p>
+                            <span class="text-[10px] text-slate-400">Google Slides</span>
+                        </div>
+                        <a href="#" class="bg-amber-500 text-white text-[11px] px-3 py-1.5 rounded-lg font-semibold">Lihat</a>
+                    </div>
+                `;
+            } else if (menu === 'perpus') {
+                title.innerHTML = `<i class="fa-solid fa-landmark text-blue-500"></i> Perpustakaan Digital`;
+                body.innerHTML = `
+                    <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-slate-100">
+                        <div>
+                            <p class="font-bold text-xs text-slate-800">Sejarah Rumusan Pancasila</p>
+                            <span class="text-[10px] text-slate-400">Artikel Sejarah</span>
+                        </div>
+                        <a href="#" class="bg-blue-600 text-white text-[11px] px-3 py-1.5 rounded-lg font-semibold">Baca</a>
+                    </div>
+                `;
+            } else if (menu === 'kuis') {
+                title.innerHTML = `<i class="fa-solid fa-circle-question text-rose-500"></i> Kuis & Evaluasi`;
+                body.innerHTML = `
+                    <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-slate-100">
+                        <div>
+                            <p class="font-bold text-xs text-slate-800">Latihan Soal Bab 1</p>
+                            <span class="text-[10px] text-slate-400">10 Soal Pilihan Ganda</span>
+                        </div>
+                        <a href="#" class="bg-rose-500 text-white text-[11px] px-3 py-1.5 rounded-lg font-semibold">Mulai</a>
+                    </div>
+                `;
+            } else if (menu === 'uud') {
+                title.innerHTML = `<i class="fa-solid fa-scale-balanced text-indigo-500"></i> Naskah UUD 1945`;
+                body.innerHTML = `
+                    <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-slate-100">
+                        <div>
+                            <p class="font-bold text-xs text-slate-800">UUD NRI Tahun 1945 Lengkap</p>
+                            <span class="text-[10px] text-slate-400">Pembukaan & Pasal-pasal</span>
+                        </div>
+                        <a href="#" class="bg-indigo-600 text-white text-[11px] px-3 py-1.5 rounded-lg font-semibold">Buka</a>
+                    </div>
+                `;
+            } else if (menu === 'video') {
+                title.innerHTML = `<i class="fa-solid fa-play text-red-500"></i> Video Pembelajaran`;
+                body.innerHTML = `
+                    <div class="p-3 bg-slate-50 rounded-xl flex justify-between items-center border border-slate-100">
+                        <div>
+                            <p class="font-bold text-xs text-slate-800">Video Lahirnya Pancasila</p>
+                            <span class="text-[10px] text-slate-400">YouTube Video</span>
+                        </div>
+                        <a href="#" class="bg-red-600 text-white text-[11px] px-3 py-1.5 rounded-lg font-semibold">Tonton</a>
+                    </div>
+                `;
+            }
+
+            modal.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function closeModal() {
+            document.getElementById('content-modal').classList.add('hidden');
+        }
+    </script>
+</body>
+</html>
