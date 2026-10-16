@@ -164,17 +164,22 @@
 
     <!-- BOTTOM NAVBAR -->
     <footer class="bg-white border-t border-slate-200 p-2 flex justify-around items-center sticky bottom-0 z-40 text-[11px] w-full">
-        <button class="flex flex-col items-center text-blue-600 font-semibold gap-1">
+        <!-- BERANDA (RESET / TUTUP POPUP) -->
+        <button onclick="closeModal(); window.scrollTo({top: 0, behavior: 'smooth'});" class="flex flex-col items-center text-blue-600 font-semibold gap-1">
             <i class="fa-solid fa-house text-base"></i>
             <span>Beranda</span>
         </button>
-        <button onclick="openTab('ebook')" class="flex flex-col items-center text-slate-400 gap-1">
-            <i class="fa-solid fa-book text-base"></i>
-            <span>Materi</span>
+
+        <!-- PROFIL (SCROLL LANGSUNG KE CARD PROFIL GURU) -->
+        <button onclick="scrollToProfile()" class="flex flex-col items-center text-slate-400 hover:text-blue-600 gap-1">
+            <i class="fa-solid fa-user text-base"></i>
+            <span>Profil</span>
         </button>
-        <button onclick="openTab('saran')" class="flex flex-col items-center text-slate-400 gap-1">
-            <i class="fa-solid fa-comments text-base"></i>
-            <span>Aspirasi</span>
+
+        <!-- BAGIKAN (SHARE LINK PORTAL KE WA/MEDSOS) -->
+        <button onclick="shareApp()" class="flex flex-col items-center text-slate-400 hover:text-blue-600 gap-1">
+            <i class="fa-solid fa-share-nodes text-base"></i>
+            <span>Bagikan</span>
         </button>
     </footer>
 
@@ -304,6 +309,24 @@
 
         function closeModal() {
             document.getElementById('content-modal').classList.add('hidden');
+        }
+        function scrollToProfile() {
+            // Scroll halus ke kartu profil di atas
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function shareApp() {
+            if (navigator.share) {
+                navigator.share({
+                    title: 'Seputar PPKn - SMPN 17 Denpasar',
+                    text: 'Yuk belajar Pendidikan Pancasila interaktif di portal Seputar PPKn!',
+                    url: window.location.href,
+                }).catch((error) => console.log('Error sharing', error));
+            } else {
+                // Fallback kalau browser laptop/PC gak support web share
+                navigator.clipboard.writeText(window.location.href);
+                alert('Link portal Seputar PPKn berhasil disalin!');
+            }
         }
     </script>
 </body>
