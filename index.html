@@ -25,7 +25,7 @@
     <!-- TOP HEADER -->
     <header class="p-4 flex justify-between items-center bg-white sticky top-0 z-40 border-b border-slate-100">
         <div class="flex items-center gap-3">
-          <img src="Seputar PPKn.png" alt="Logo Seputar PPKn" class="w-9 h-9 rounded-xl object-cover shadow-md">
+          <img src="Seputar PPKn.jpg" alt="Logo Seputar PPKn" class="w-9 h-9 rounded-xl object-cover shadow-md">
             </div>
             <div>
                 <h1 class="font-bold text-base text-slate-800 leading-tight">Seputar PPKn</h1>
@@ -39,26 +39,36 @@
 
     <main class="p-4 flex-1 space-y-5">
 
-        <!-- PROFILE BANNER / CARD PROFIL -->
-        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-4 text-white shadow-lg shadow-blue-500/20 relative overflow-hidden">
-            <div class="flex items-center gap-3 relative z-10">
-                <!-- Avatar -->
-               <img src="wibi.jpeg" alt="Foto I Made Wibi Fernanda" class="w-12 h-12 rounded-full object-cover border-2 border-white/40 shadow-inner">
-                </div>
-                <div>
-                    <span class="text-[10px] uppercase font-bold tracking-wider text-blue-200 bg-blue-500/30 px-2 py-0.5 rounded-md border border-blue-400/20">
-                        Educator & Creator
-                    </span>
-                    <h2 class="font-extrabold text-base leading-tight mt-1">I Made Wibi Fernanda, S.Pd.</h2>
-                    <p class="text-[11px] text-blue-100 mt-0.5">Guru Pendidikan Pancasila — SMPN 17 Denpasar</p>
-                </div>
+       <!-- PROFILE BANNER / CARD PROFIL -->
+<div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-2xl p-4 text-white shadow-lg shadow-blue-500/20 relative overflow-hidden">
+    <!-- flex-row & items-center bikin foto & teks sejajar ke samping -->
+    <div class="flex flex-row items-center gap-3.5 relative z-10">
+        
+        <!-- FOTO PROFIL (Tetap lingkaran, tidak melar) -->
+        <img src="foto.jpg" alt="I Made Wibi Fernanda" class="w-14 h-14 rounded-full object-cover border-2 border-white/40 shadow-md shrink-0">
+        
+        <!-- TEKS IDENTITAS (Berada tepat di samping kanan foto) -->
+        <div class="flex flex-col justify-center min-w-0">
+            <div>
+                <span class="inline-block text-[9px] uppercase font-bold tracking-wider text-blue-200 bg-blue-500/30 px-2 py-0.5 rounded-md border border-blue-400/20">
+                    Educator & Creator
+                </span>
             </div>
-
-            <!-- Hiasan Background Card -->
-            <div class="absolute -right-4 -bottom-6 text-7xl opacity-10 select-none">
-                🏛️
-            </div>
+            <h2 class="font-extrabold text-sm md:text-base leading-tight mt-1 text-white truncate">
+                I Made Wibi Fernanda, S.Pd.
+            </h2>
+            <p class="text-[10.5px] text-blue-100 mt-0.5 leading-snug">
+                Guru Pendidikan Pancasila — SMPN 17 Denpasar
+            </p>
         </div>
+
+    </div>
+
+    <!-- Hiasan Background Card -->
+    <div class="absolute -right-4 -bottom-6 text-7xl opacity-10 select-none">
+        🏛️
+    </div>
+</div>
 
         <!-- GRID 9 MENU UTUH -->
         <div>
