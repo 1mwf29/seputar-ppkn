@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Civic Arena - True or False</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @keyframes bounce-subtle {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-8px); }
+        }
+        .animate-avatar { animation: bounce-subtle 1.5s infinite ease-in-out; }
+    </style>
+</head>
+<body class="bg-slate-900 text-white font-sans min-h-screen flex flex-col justify-between select-none">
+
+    <!-- HEADER & SOAL -->
+    <header class="p-4 bg-slate-800 border-b border-slate-700 text-center relative shadow-lg">
+        <div class="flex justify-between items-center mb-2 max-w-xl mx-auto">
+            <span id="question-number" class="text-xs font-bold bg-indigo-600 px-3 py-1 rounded-full">Soal 1 / 6</span>
+            <span id="timer" class="text-lg font-black text-amber-400">⏱️ 10s</span>
+        </div>
+        <div class="w-full bg-slate-700 h-2 rounded-full overflow-hidden max-w-xl mx-auto mb-3">
+            <div id="progress-bar" class="bg-amber-400 h-full w-full transition-all duration-1000 linear"></div>
+        </div>
+        <h1 id="question-text" class="text-base md:text-lg font-bold text-slate-100 max-w-xl mx-auto">
+            Garuda Pancasila dirancang oleh Sultan Hamid II dari Pontianak.
+        </h1>
+    </header>
+
+    <!-- ARENA MULTIPLAYER HAGO (KIRI VS KANAN) -->
+    <main class="flex-1 flex max-w-2xl w-full mx-auto my-2 rounded-xl overflow-hidden shadow-2xl border border-slate-700">
+        <!-- SISI KIRI (BENAR / HIJAU) -->
+        <div id="left-zone" onclick="chooseAnswer(true)" class="flex-1 bg-emerald-950/60 hover:bg-emerald-900/60 border-r-2 border-emerald-500/50 p-4 flex flex-col items-center justify-between cursor-pointer transition-all">
+            <div class="flex items-center gap-2 text-emerald-400 font-black text-2xl">
+                <i class="fa-solid font-bold fa-circle-check"></i>
+                <span>BENAR</span>
+            </div>
+            <div id="left-avatars" class="flex flex-wrap gap-3 justify-center my-auto max-w-[200px]">
+                <!-- Avatar Player Kiri -->
+            </div>
+            <span id="left-count" class="text-xs bg-emerald-800/80 px-3 py-1 rounded-full font-bold">0 Pemain</span>
+        </div>
+
+        <!-- SISI KANAN (SALAH / MERAH) -->
+        <div id="right-zone" onclick="chooseAnswer(false)" class="flex-1 bg-rose-950/60 hover:bg-rose-900/60 border-l-2 border-rose-500/50 p-4 flex flex-col items-center justify-between cursor-pointer transition-all">
+            <div class="flex items-center gap-2 text-rose-400 font-black text-2xl">
+                <i class="fa-solid fa-circle-xmark"></i>
+                <span>SALAH</span>
+            </div>
+            <div id="right-avatars" class="flex flex-wrap gap-3 justify-center my-auto max-w-[200px]">
+                <!-- Avatar Player Kanan -->
+            </div>
+            <span id="right-count" class="text-xs bg-rose-800/80 px-3 py-1 rounded-full font-bold">0 Pemain</span>
+        </div>
+    </main>
+
+    <!-- FOOTER INFO & KONTROL -->
+    <footer class="p-4 bg-slate-800 border-t border-slate-700 text-center text-xs text-slate-300">
+        <div id="explanation-box" class="hidden max-w-xl mx-auto p-3 mb-2 bg-indigo-950 border border-indigo-500 rounded-lg">
+            <p id="explanation-title" class="font-bold text-indigo-300 mb-1"></p>
+            <p id="explanation-text" class="text-slate-200 italic"></p>
+        </div>
+        <p class="text-slate-400">Ketuk sisi <b>BENAR (Kiri)</b> atau <b>SALAH (Kanan)</b> untuk memindahkan avatarmu!</p>
+    </footer>
+
+    <script>
+        const questions = [
+            { statement: "Garuda Pancasila dirancang oleh Sultan Hamid II dari Pontianak.", isTrue: true, explanation: "Benar! Lambang negara Garuda Pancasila dirancang oleh Sultan Hamid II dan disempurnakan oleh Presiden Soekarno." },
+            { statement: "Sila ke-3 Pancasila dilambangkan dengan rantai emas berbentuk lingkaran dan persegi.", isTrue: false, explanation: "Salah! Sila ke-3 dilambangkan oleh Pohon Beringin. Rantai emas adalah lambang Sila ke-2." },
+            { statement: "UUD NRI Tahun 1945 telah mengalami 4 kali amandemen sejak reformasi.", isTrue: true, explanation: "Benar! Amandemen UUD 1945 dilakukan pada tahun 1999, 2000, 2001, dan 2002." },
+            { statement: "Kedudukan Pancasila sebagai Dasar Negara tercantum dalam Pembukaan UUD 1945 Alinea Ke-3.", isTrue: false, explanation: "Salah! Rumusan Pancasila sebagai dasar negara tercantum dalam Pembukaan UUD 1945 Alinea Ke-4." },
+            { statement: "Bhinneka Tunggal Ika berasal dari Kitab Sutasoma karangan Mpu Tantular.", isTrue: true, explanation: "Benar! Kakawin Sutasoma ditulis oleh Mpu Tantular pada zaman Kerajaan Majapahit." }
+        ];
+
+        let currentQ = 0;
+        let myChoice = null;
+        let myAvatar = "🐱";
+        let myName = "KAMU";
+
+        function render() {
+            const q = questions[currentQ];
+            document.getElementById("question-number").innerText = `Soal ${currentQ + 1} / ${questions.length}`;
+            document.getElementById("question-text").innerText = q.statement;
+            
+            const leftAvatars = document.getElementById("left-avatars");
+            const rightAvatars = document.getElementById("right-avatars");
+            
+            leftAvatars.innerHTML = myChoice === true ? `<div class="flex flex-col items-center animate-avatar"><span class="text-3xl">${myAvatar}</span><span class="text-[10px] font-bold text-emerald-300">${myName}</span></div>` : '';
+            rightAvatars.innerHTML = myChoice === false ? `<div class="flex flex-col items-center animate-avatar"><span class="text-3xl">${myAvatar}</span><span class="text-[10px] font-bold text-rose-300">${myName}</span></div>` : '';
+
+            document.getElementById("left-count").innerText = `${myChoice === true ? 1 : 0} Pemain`;
+            document.getElementById("right-count").innerText = `${myChoice === false ? 1 : 0} Pemain`;
+        }
+
+        function chooseAnswer(ans) {
+            myChoice = ans;
+            render();
+        }
+
+        render();
+    </script>
+</body>
+</html>
