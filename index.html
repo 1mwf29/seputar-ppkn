@@ -310,9 +310,27 @@
         function closeModal() {
             document.getElementById('content-modal').classList.add('hidden');
         }
-        function scrollToProfile() {
-            // Scroll halus ke kartu profil di atas
-            window.scrollTo({ top: 0, behavior: 'smooth' });
+    function scrollToProfile() {
+            const modal = document.getElementById('content-modal');
+            const title = document.getElementById('modal-title');
+            const body = document.getElementById('modal-body');
+
+            modal.classList.remove('hidden');
+
+            title.innerHTML = `<i class="fa-solid fa-user-tie text-blue-600"></i> Profil Pendidik`;
+            body.innerHTML = `
+                <div class="p-3.5 bg-slate-50 rounded-xl border border-slate-100 space-y-2">
+                    <div>
+                        <h5 class="font-bold text-xs text-slate-800">I Made Wibi Fernanda, S.Pd.</h5>
+                        <p class="text-[10px] text-blue-600 font-medium">Guru Pendidikan Pancasila — SMPN 17 Denpasar</p>
+                    </div>
+                    <p class="text-[11px] text-slate-600 leading-relaxed border-t border-slate-200/60 pt-2">
+                        Selamat datang! Portal Seputar PPKn ini dikembangkan sebagai media pembelajaran digital interaktif untuk memudahkan siswa dalam mengakses materi, slide, video, dan e-book Pendidikan Pancasila kapan saja dan di mana saja.
+                    </p>
+                </div>
+            `;
+
+            modal.scrollIntoView({ behavior: 'smooth' });
         }
 
         function shareApp() {
